@@ -1,6 +1,6 @@
 {
   "name": "gnar",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Stream-based wrapper for the League of Legends API",
   "main": "index.js",
   "scripts": {
