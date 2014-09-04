@@ -1,0 +1,28 @@
+{
+  "name": "gnar",
+  "version": "0.0.0",
+  "description": "Stream-based wrapper for the League of Legends API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "api",
+    "stream",
+    "league-of-legends",
+    "lol"
+  ],
+  "author": "Dominik Schreiber <dominik@dominikschreiber.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dominikschreiber/gnar.git"
+  },
+  "license": "MIT",
+  "config": {
+    "key": "",
+    "region": "na"
+  },
+  "dependencies": {
+    "request": "^2.40.0"
+  }
+}
