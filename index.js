@@ -18,12 +18,15 @@ module.exports = function gnar(api_key, requested_region) {
   
     , exports = {};
 
-  function url(endpoint) {
-    return 'https://' + region + '.api.pvp.net/api/lol/' + endpoint + '?api_key=' + key;
+  function url(endpoint, reg) {
+    if (!reg) {
+      reg = region;
+    }
+    return 'https://' + reg + '.api.pvp.net/api/lol/' + endpoint + '?api_key=' + key;
   }
 
-  function get(endpoint) {
-    return request(url(endpoint));
+  function get(endpoint, reg) {
+    return request(url(endpoint, reg));
   }
 
   function str(ids) {
@@ -49,29 +52,31 @@ module.exports = function gnar(api_key, requested_region) {
     }
   };
 
+  // the static data api is exposed globally rather than region specific
+  // so we provide the 'global' region to the get/url call
   exports.lol_static_data = {
     champion: {
-      all: function() { return get(api.lol_static_data + 'champion'); },
-      by_id: function(id) { return get(api.lol_static_data + 'champion/' + id); }
+      all: function() { return get(api.lol_static_data + 'champion', 'global'); },
+      by_id: function(id) { return get(api.lol_static_data + 'champion/' + id, 'global'); }
     },
     item: {
-      all: function() { return get(api.lol_static_data + 'item'); },
-      by_id: function(id) { return get(api.lol_static_data + 'item/' + id); }
+      all: function() { return get(api.lol_static_data + 'item', 'global'); },
+      by_id: function(id) { return get(api.lol_static_data + 'item/' + id, 'global'); }
     },
     mastery: {
-      all: function() { return get(api.lol_static_data + 'mastery'); },
-      by_id: function(id) { return get(api.lol_static_data + 'mastery/' + id); }
+      all: function() { return get(api.lol_static_data + 'mastery', 'global'); },
+      by_id: function(id) { return get(api.lol_static_data + 'mastery/' + id, 'global'); }
     },
-    realm: function() { return get(api.lol_static_data + 'realm'); },
+    realm: function() { return get(api.lol_static_data + 'realm', 'global'); },
     rune: {
-      all: function() { return get(api.lol_static_data + 'rune'); },
-      by_id: function(id) { return get(api.lol_static_data + 'rune/' + id); }
+      all: function() { return get(api.lol_static_data + 'rune', 'global'); },
+      by_id: function(id) { return get(api.lol_static_data + 'rune/' + id, 'global'); }
     },
     summoner_spell: {
-      all: function() { return get(api.lol_static_data + 'summoner-spell'); },
-      by_id: function(id) { return get(api.lol_static_data + 'summoner-spell/' + id); }
+      all: function() { return get(api.lol_static_data + 'summoner-spell', 'global'); },
+      by_id: function(id) { return get(api.lol_static_data + 'summoner-spell/' + id, 'global'); }
     },
-    versions: function() { return get(api.lol_static_data + 'versions'); }
+    versions: function() { return get(api.lol_static_data + 'versions', 'global'); }
   };
 
   exports.match = function(id) { return get(api.match + id); };
