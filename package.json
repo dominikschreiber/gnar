@@ -17,11 +17,11 @@
     "type": "git",
     "url": "https://github.com/dominikschreiber/gnar.git"
   },
-  "license": "MIT",
-  "config": {
-    "key": "",
-    "region": "na"
+  "bugs": {
+    "url": "https://github.com/dominikschreiber/gnar/issues",
+    "email": "dominik@dominikschreiber.com"
   },
+  "license": "MIT",
   "dependencies": {
     "request": "^2.40.0"
   }
