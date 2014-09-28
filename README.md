@@ -24,7 +24,7 @@ A wrapper for the official [League of Legends API](https://developer.riotgames.c
 4. use *gnar* as you would expect
 
   ```javascript
-  gnar.summoners.by_name('refridgerator').pipe(process.stdout)
+  gnar.summoner.by_name('refridgerator').pipe(process.stdout)
   // all stream-based! pipe to what you need
   ```
 
